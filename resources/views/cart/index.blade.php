@@ -16,7 +16,9 @@
             @foreach ($cartItems as $item)
             <tr>
                 <td scope="row"><{{$item->name}}/td>
-                <td>{{$item->price}}</td>
+                <td>
+                    {{Cart::session(auth()->id())->get($item->id)->getPriceSum()}}
+                </td>
                 <td>
                     <form action="{{route('cart.update',$item->id)}}"><input type="number" name="quantity" value="{{$item->quantity}}">
                 <input type="submit" value="Save"></form></td>
@@ -27,4 +29,6 @@
 
         </tbody>
     </table>
+    <h3>Total Price:$ {{\Cart::session(auth()->id())->getTotal()}}</h3>
+    <a href="#" class="btn btn-primary">Checkout</a>
 @endsection

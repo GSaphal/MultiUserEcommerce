@@ -11,6 +11,7 @@
        <div class="card-body">
            <h4 class="card-title">{{$products->name}}</h4>
            <p class="card-text">{{$products->description}}</p>
+           <h3>{{$products->price}}</h3>
        </div>
        <div class="card-body">
            <a href="/add-to-card/{{$products->id}}" class="card-link">Add to Cart</a>
